@@ -1,0 +1,210 @@
+/* ==========================================================================
+   ENSON SUSHI - RESPONSIVE STYLES
+   Breakpoints: 1200px (Desktop), 992px (Tablet Land), 768px (Tablet Port), 576px (Mobile)
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .footer-top-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-menu {
+    display: none;
+  }
+  
+  .mobile-toggle {
+    display: flex;
+  }
+  
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .experience-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  
+  .chef-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .craft-overlay-content {
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+  }
+  
+  .craft-left-intro {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .craft-steps-rail {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 72px;
+  }
+  
+  .hero-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .hero-metrics {
+    gap: 24px;
+  }
+  
+  .menu-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .menu-search-wrap {
+    width: 100%;
+  }
+  
+  .experience-options-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .time-slots-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .modal-card {
+    grid-template-columns: 1fr;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal-img-wrap {
+    min-height: 220px;
+    height: 220px;
+  }
+  
+  .pass-details-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  
+  .footer-bottom-bar {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-main-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-sketch {
+    width: 100%;
+  }
+  
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tasting-flight-bar {
+    flex-direction: column;
+    align-items: stretch;
+    bottom: 12px;
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .flight-bar-left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .flight-pill-scroll {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .flight-bar-actions {
+    justify-content: space-between;
+  }
+  
+  .booking-progress-bar {
+    margin-bottom: 32px;
+  }
+  
+  .step-label {
+    display: none;
+  }
+  
+  .experience-card {
+    height: 380px;
+    padding: 24px;
+  }
+
+  .header-reserve-btn {
+    display: none;
+  }
+
+  .shokunin-menu-trigger {
+    padding: 6px 12px;
+  }
+
+  .shokunin-menu-trigger .trigger-kanji {
+    display: none;
+  }
+
+  .overlay-top-bar {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+  }
+
+  .overlay-brand-title {
+    font-size: 1.05rem;
+  }
+
+  .overlay-nav-item {
+    padding: 10px 12px;
+    gap: 12px;
+  }
+
+  .overlay-nav-item .nav-item-title {
+    font-size: 1.25rem;
+  }
+
+  .overlay-nav-item .nav-item-kanji {
+    font-size: 0.8rem;
+  }
+}

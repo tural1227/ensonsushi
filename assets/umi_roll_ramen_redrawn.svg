@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 680" width="600" height="680">
+<defs>
+  <style>
+    .navy{fill:#06334A;stroke:#081923;stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+    .line{fill:none;stroke:#06334A;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .red{fill:none;stroke:#E97969;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+    .redfill{fill:#E97969}
+    .cream{fill:#F5F4EA;stroke:#081923;stroke-width:5}
+  </style>
+</defs>
+
+<!-- CHOPSTICKS -->
+<path class="navy" d="M86 59 Q88 54 97 54 L535 56 Q543 56 544 61 Q542 66 534 66 L98 65 Q88 65 86 59Z"/>
+<path class="navy" d="M88 103 Q89 96 99 96 L535 98 Q543 98 544 103 Q542 109 533 109 L98 108 Q89 108 88 103Z"/>
+
+<!-- STEAM -->
+<path class="red" d="M419 60 C430 73 426 84 419 95 C412 106 414 119 424 130"/>
+<path class="red" d="M389 70 C400 82 397 94 390 105 C382 117 384 129 394 140"/>
+<path class="red" d="M447 74 C457 86 454 97 448 107 C441 118 443 128 452 139"/>
+
+<!-- RED TOP / SAUCE LINE -->
+<path class="red" d="M339 218 L523 218 L523 238"/>
+<path class="red" d="M334 272 C350 291 367 300 391 306"/>
+
+<!-- WAVE: large stylized ocean wave -->
+<path class="line" d="M86 317
+ C113 312 128 298 137 274
+ C149 242 166 211 197 189
+ C222 171 257 166 283 181
+ C302 192 316 209 320 228
+ C323 243 318 259 307 270
+ C302 251 289 239 273 235
+ C251 230 234 239 224 255
+ C214 271 210 290 214 307
+ C222 340 251 360 289 367
+ C326 374 365 368 394 350
+ C409 341 421 334 437 333"/>
+<path class="line" d="M144 277
+ C159 255 173 235 196 221
+ C217 209 241 207 259 215
+ C274 222 283 235 286 249"/>
+<path class="line" d="M205 257
+ C193 270 189 288 193 305
+ C199 328 217 348 243 359
+ C272 371 307 376 340 370"/>
+<path class="line" d="M117 331
+ C140 326 157 315 168 296"/>
+<path class="line" d="M168 296 C154 312 141 327 122 334 C111 338 99 340 88 339"/>
+
+<!-- bowl / cup -->
+<path class="cream" d="M430 254
+ C430 243 449 235 476 235
+ C504 235 524 243 524 254
+ L524 315
+ C524 332 505 343 477 343
+ C449 343 430 332 430 315 Z"/>
+<ellipse class="cream" cx="477" cy="254" rx="47" ry="19"/>
+<ellipse cx="477" cy="254" rx="25" ry="10" fill="#E97969" stroke="#081923" stroke-width="3"/>
+<path d="M431 273 C444 281 459 284 477 284 C495 284 510 281 523 273" fill="none" stroke="#081923" stroke-width="4"/>
+<path d="M431 309 C443 317 459 320 477 320 C495 320 511 317 523 309" fill="none" stroke="#DCE3E1" stroke-width="3" opacity=".75"/>
+
+<!-- small red motion accent -->
+<path class="red" d="M401 274 C411 284 420 291 431 296"/>
+
+<!-- UMI wordmark -->
+<g fill="#06334A" stroke="#081923" stroke-width="2">
+  <path d="M132 405 L151 405 L151 486 C151 512 163 526 184 526 C205 526 217 512 217 486 L217 405 L236 405 L236 487 C236 524 216 546 184 546 C151 546 132 524 132 487 Z"/>
+  <path d="M252 405 L275 405 L307 463 L339 405 L362 405 L362 546 L342 546 L342 438 L311 493 L303 493 L272 438 L272 546 L252 546 Z"/>
+  <path d="M381 405 L401 405 L401 546 L381 546 Z"/>
+</g>
+
+<!-- ROLL RAMEN -->
+<g fill="none" stroke="#15394E" stroke-width="2.5" stroke-linejoin="round">
+  <text x="24" y="597" font-family="Lato, Arial, sans-serif" font-size="42" font-weight="400" letter-spacing="2">ROLL</text>
+  <text x="320" y="597" font-family="Lato, Arial, sans-serif" font-size="42" font-weight="400" letter-spacing="1.5">RAMEN</text>
+</g>
+
+<!-- decorative spiral between words -->
+<g fill="none" stroke="#15394E" stroke-width="2.5" stroke-linecap="round">
+ <path d="M269 580 C255 565 239 574 243 589 C246 602 265 607 277 597 C289 587 287 570 274 563"/>
+ <path d="M271 568 C283 568 289 579 285 590 C281 603 266 609 254 603"/>
+ <path d="M258 574 C248 577 248 589 255 594 C264 601 277 595 279 585"/>
+ <path d="M265 577 C272 577 275 584 272 589 C269 595 261 595 258 590"/>
+</g>
+</svg>

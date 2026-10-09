@@ -1,0 +1,325 @@
+/* ==========================================================================
+   ENSON SUSHI - PENCIL SKETCH & JAPANESE CULTURAL ART MOTIFS
+   Charcoal Hatching, Wabi-Sabi Asymmetry, Torii Lines, Seigaiha Waves & Hanko Seals
+   ========================================================================== */
+
+/* 1. Authentic Japanese Red Hanko Stamp (Inkan Seal) */
+.hanko-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 2px solid var(--color-red-vibrant);
+  border-radius: 3px;
+  color: var(--color-red-vibrant);
+  font-family: var(--font-kanji);
+  font-weight: 900;
+  font-size: 1.2rem;
+  line-height: 1;
+  background: rgba(230, 57, 70, 0.08);
+  box-shadow: inset 0 0 6px rgba(230, 57, 70, 0.2), 0 0 10px rgba(230, 57, 70, 0.2);
+  transform: rotate(-3deg);
+  user-select: none;
+  position: relative;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.hanko-stamp::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border: 1px dashed rgba(230, 57, 70, 0.45);
+  pointer-events: none;
+}
+
+.hanko-stamp.large {
+  width: 58px;
+  height: 58px;
+  font-size: 1.7rem;
+}
+
+.hanko-stamp:hover {
+  transform: rotate(0deg) scale(1.08);
+  box-shadow: 0 0 16px var(--color-red-vibrant);
+}
+
+/* 2. Hand-Drawn Pencil Sketch Borders */
+/* For Dark Containers */
+.sketch-border-dark {
+  position: relative;
+  border: 1px solid var(--border-dark-sketch);
+  background: var(--bg-dark-card);
+  backdrop-filter: blur(12px);
+  transition: border-color var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.sketch-border-dark::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+  opacity: 0.6;
+  transition: border-color var(--transition-normal), opacity var(--transition-normal);
+}
+
+.sketch-border-dark:hover {
+  border-color: var(--color-red-vibrant);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(230, 57, 70, 0.15);
+}
+
+.sketch-border-dark:hover::before {
+  border-color: var(--color-red-vibrant);
+  opacity: 1;
+}
+
+/* For Light Containers (Pencil Sketch on Paper) */
+.sketch-border-light {
+  position: relative;
+  border: 1px solid var(--border-light-sketch);
+  background: var(--bg-light-card);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: border-color var(--transition-normal), transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.sketch-border-light::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 1px dashed rgba(20, 20, 20, 0.18);
+  pointer-events: none;
+  opacity: 0.7;
+  transition: border-color var(--transition-normal), opacity var(--transition-normal);
+}
+
+.sketch-border-light:hover {
+  border-color: var(--color-red-primary);
+  box-shadow: 0 12px 32px rgba(200, 16, 46, 0.08), 0 4px 16px rgba(0, 0, 0, 0.06);
+  transform: translateY(-3px);
+}
+
+.sketch-border-light:hover::before {
+  border-color: var(--color-red-primary);
+  opacity: 1;
+}
+
+/* 3. Japanese Seigaiha (Waves) Pencil Pattern */
+.bg-seigaiha-pencil {
+  background-image: radial-gradient(circle at 100% 150%, transparent 20%, rgba(20, 20, 20, 0.03) 21%, rgba(20, 20, 20, 0.03) 24%, transparent 25%, transparent 40%, rgba(20, 20, 20, 0.03) 41%, rgba(20, 20, 20, 0.03) 44%, transparent 45%),
+                    radial-gradient(circle at 0 150%, transparent 20%, rgba(20, 20, 20, 0.03) 21%, rgba(20, 20, 20, 0.03) 24%, transparent 25%, transparent 40%, rgba(20, 20, 20, 0.03) 41%, rgba(20, 20, 20, 0.03) 44%, transparent 45%);
+  background-size: 50px 25px;
+}
+
+/* 4. Japanese Pencil Cross-Hatching */
+.bg-hatching-dark {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+}
+
+.bg-hatching-light {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(20, 20, 20, 0.025) 0px,
+    rgba(20, 20, 20, 0.025) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+}
+
+/* 5. Japanese Kintsugi Divider Line */
+.kintsugi-divider {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.4), var(--color-red-vibrant), rgba(197, 160, 89, 0.4), transparent);
+  margin: 32px 0;
+}
+
+/* 6. Hand-Drawn Pencil Underline */
+.sketch-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.sketch-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 3px;
+  background: url("data:image/svg+xml,%3Csvg width='200' height='6' viewBox='0 0 200 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 3.5C40 1.5 85 5 125 3C165 1 190 4 198 3' stroke='%23e63946' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* 7. Pencil Sketch Handwritten Margin Notes */
+.sketch-note {
+  font-family: var(--font-handwriting);
+  font-size: 1.35rem;
+  color: var(--color-red-primary);
+  line-height: 1.1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transform: rotate(-2deg);
+}
+
+/* 8. Japanese Calligraphy Large Kanji Watermarks */
+.kanji-watermark {
+  position: absolute;
+  font-family: var(--font-kanji);
+  font-weight: 900;
+  user-select: none;
+  pointer-events: none;
+  line-height: 0.9;
+  z-index: 0;
+}
+
+.section-dark .kanji-watermark {
+  color: rgba(255, 255, 255, 0.03);
+}
+
+.section-dark .kanji-watermark.red {
+  color: rgba(230, 57, 70, 0.05);
+}
+
+.section-light .kanji-watermark {
+  color: rgba(20, 20, 20, 0.04);
+}
+
+.section-light .kanji-watermark.red {
+  color: rgba(200, 16, 46, 0.06);
+}
+
+/* 9. Pencil Sketch Buttons */
+.btn-sketch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 28px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  border-radius: 2px;
+}
+
+/* Dark Theme Button */
+.section-dark .btn-sketch, .site-header .btn-sketch {
+  color: #ffffff;
+  background: var(--bg-dark-secondary);
+  border: 1px solid var(--border-dark-sketch);
+}
+
+.section-dark .btn-sketch::before, .site-header .btn-sketch::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-red-vibrant);
+  transform: translateY(100%);
+  transition: transform 0.4s var(--ease-out-expo);
+  z-index: 0;
+}
+
+.section-dark .btn-sketch:hover::before, .site-header .btn-sketch:hover::before {
+  transform: translateY(0);
+}
+
+.section-dark .btn-sketch:hover, .site-header .btn-sketch:hover {
+  border-color: var(--color-red-vibrant);
+  box-shadow: 0 0 20px var(--color-red-glow);
+}
+
+/* Light Theme Button */
+.section-light .btn-sketch {
+  color: var(--text-light-primary);
+  background: #ffffff;
+  border: 1px solid var(--border-light-rough);
+  box-shadow: 2px 2px 0 rgba(20, 20, 20, 0.8);
+}
+
+.section-light .btn-sketch::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-red-primary);
+  transform: translateY(100%);
+  transition: transform 0.4s var(--ease-out-expo);
+  z-index: 0;
+}
+
+.section-light .btn-sketch:hover {
+  color: #ffffff;
+  border-color: var(--color-red-primary);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 rgba(200, 16, 46, 0.9);
+}
+
+.section-light .btn-sketch:hover::before {
+  transform: translateY(0);
+}
+
+.btn-sketch span, .btn-sketch i, .btn-sketch svg {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-sketch.primary {
+  background: var(--color-red-primary) !important;
+  border-color: var(--color-red-vibrant) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 16px rgba(230, 57, 70, 0.3) !important;
+}
+
+.btn-sketch.primary:hover {
+  background: #ffffff !important;
+  color: var(--bg-dark-primary) !important;
+}
+
+/* 10. Torii Gate Minimalist Decorative Graphic */
+.torii-mark {
+  display: inline-block;
+  width: 24px;
+  height: 18px;
+  position: relative;
+}
+
+.torii-mark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-red-vibrant);
+}
+
+.torii-mark::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 3px;
+  right: 3px;
+  height: 2px;
+  background: var(--color-red-vibrant);
+}

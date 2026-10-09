@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENSON SUSHI | 円村 — Haute Japanese Gastronomy & Omakase</title>
+  <meta name="description" content="ENSON SUSHI offers an avant-garde Japanese culinary journey blending 300-year Edomae tradition with modern culinary architecture. Reserve your seat at the Hinoki Counter.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/main.css?v=7.7">
+  <link rel="stylesheet" href="css/sketch-fx.css?v=7.7">
+  <link rel="stylesheet" href="css/components.css?v=7.7">
+  <link rel="stylesheet" href="css/responsive.css?v=7.7">
+  
+  <!-- Libraries (GSAP, ScrollTrigger, Lenis, Lucide Icons) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Noise Texture Filter Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Custom Charcoal Pencil Cursor -->
+  <div class="custom-cursor"></div>
+  <div class="custom-cursor-follower"></div>
+
+  <!-- Preloader Screen -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <img src="logo.svg" alt="ENSON Logo" class="preloader-logo">
+      <span class="preloader-kanji">円村 · 鮨</span>
+      <div class="preloader-sketch-box">
+        <div class="preloader-progress"></div>
+      </div>
+      <span class="preloader-status">Preparing Shokunin Experience...</span>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       1. NAVIGATION BAR (Clean, Transparent Over Hero, Interactive Luxury Dock)
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="container header-container">
+      <!-- Logo Branding (Pure Vector SVG Icon) -->
+      <a href="#hero" class="brand-logo-link">
+        <img src="logo.svg" alt="ENSON SUSHI" class="brand-logo-img">
+      </a>
+
+      <!-- Desktop Navigation Links Dock -->
+      <nav class="desktop-nav-dock">
+        <ul class="nav-menu">
+          <li><a href="#philosophy" class="nav-link" data-kanji="哲学">Philosophy</a></li>
+          <li><a href="#craft" class="nav-link" data-kanji="職人技">The Craft</a></li>
+          <li><a href="#menu" class="nav-link" data-kanji="献立">Omakase Menu</a></li>
+          <li><a href="#experience" class="nav-link" data-kanji="空間">Atmosphere</a></li>
+          <li><a href="#chef" class="nav-link" data-kanji="料理長">Master Chef</a></li>
+          <li><a href="#contact" class="nav-link" data-kanji="案内">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Table Reservation CTA -->
+        <a href="#reservation" class="btn-sketch primary header-reserve-btn">
+          <span>Reserve Table</span>
+        </a>
+
+        <!-- Mobile Navigation Toggle (Mobile Only) -->
+        <button id="mobile-toggle" class="mobile-toggle" aria-label="Open Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       AVANT-GARDE FULLSCREEN SHOKUNIN CINEMATIC MENU OVERLAY
+       ========================================================================= -->
+  <div id="shokunin-menu-overlay" class="shokunin-menu-overlay" aria-hidden="true">
+    <!-- Animated Sumi Ink & Shoji Screen Slices -->
+    <div class="shokunin-overlay-bg">
+      <div class="overlay-panel panel-1"></div>
+      <div class="overlay-panel panel-2"></div>
+      <div class="overlay-panel panel-3"></div>
+    </div>
+
+    <!-- Giant Dynamic Background Kanji Watermark -->
+    <div class="overlay-kanji-bg" id="overlay-kanji-bg">円村 · 鮨</div>
+
+    <!-- Inner Overlay Workspace -->
+    <div class="shokunin-overlay-inner">
+      <!-- Overlay Top Header -->
+      <div class="overlay-top-bar">
+        <div class="overlay-brand">
+          <img src="logo.svg" alt="ENSON SUSHI" class="overlay-logo-img">
+          <div>
+            <span class="overlay-brand-title">ENSON SUSHI · 円村</span>
+            <span class="overlay-brand-sub">TOKYO GINZA · MICHELIN 3-STAR CALIBER</span>
+          </div>
+        </div>
+
+        <div class="overlay-top-meta">
+          <div class="tokyo-status-pill">
+            <span class="pulse-dot"></span>
+            <span id="overlay-tokyo-clock">TOKYO 20:00:00 JST</span>
+          </div>
+          <button id="shokunin-menu-close" class="shokunin-menu-close" aria-label="Close Fullscreen Menu">
+            <span class="close-text">CLOSE / 閉じる</span>
+            <div class="close-icon-wrap">
+              <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3-Column Split Interactive Layout -->
+      <div class="overlay-grid">
+        <!-- Left Column: Shokunin Dossier & Heritage -->
+        <div class="overlay-info-col">
+          <div class="overlay-info-card">
+            <div class="info-hanko-wrap">
+              <span class="hanko-stamp" style="width: 38px; height: 38px; font-size: 0.95rem;">一期</span>
+              <div>
+                <span class="info-label">PHILOSOPHY OF ENSON</span>
+                <h4 class="info-headline">Ichigo Ichie (一期一会)</h4>
+              </div>
+            </div>
+            <p class="info-paragraph">
+              Every cut of 14-day dry-aged Otoro, grain of warm 36.5°C Akasu red shari, and brush of 5-year nikiri soy exists only for this singular fleeting moment.
+            </p>
+          </div>
+
+          <div class="overlay-info-details">
+            <div class="detail-row">
+              <span class="detail-tag">SANCTUARY</span>
+              <span class="detail-val">Ginza 6-Chome, Chuo City, Tokyo</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-tag">SEATING</span>
+              <span class="detail-val">12-Seat Hinoki Counter · 2 Private Tatami Suites</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-tag">CONCIERGE</span>
+              <span class="detail-val">+81 3-5555-8899 · concierge@ensonsushi.jp</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-tag">DAILY AUCTION</span>
+              <span class="detail-val">Toyosu Tuna Inspection: 04:30 JST Daily</span>
+            </div>
+          </div>
+
+          <div class="overlay-socials">
+            <span class="social-label">ACCOLADES & ARCHIVE:</span>
+            <div class="social-links-row">
+              <span class="overlay-accolade-badge">Michelin Guide ★★★</span>
+              <span class="overlay-accolade-badge">OAD Asia Top 10</span>
+              <span class="overlay-accolade-badge">Tabelog Gold 4.86</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center Column: Giant Animated Navigation Links -->
+        <div class="overlay-nav-col">
+          <nav class="overlay-nav-list">
+            <a href="#philosophy" class="overlay-nav-item active-nav-hover" data-index="0" data-preview="images/chef_craft.jpg" data-kanji="哲学" data-quote="300-year Edomae soul fused with architectural minimalism.">
+              <span class="nav-item-num">01</span>
+              <div class="nav-item-content">
+                <span class="nav-item-title">Philosophy</span>
+                <span class="nav-item-kanji">哲学と歴史</span>
+              </div>
+              <span class="nav-item-desc">The Edomae Ethos & Heritage</span>
+              <span class="nav-item-arrow"><i data-lucide="arrow-right" style="width: 20px;"></i></span>
+            </a>
+
+            <a href="#craft" class="overlay-nav-item" data-index="1" data-preview="images/nigiri_master.jpg" data-kanji="職人技" data-quote="Ikejime harvest, 21-day salt aging, and Kishu Binchotan oak coals.">
+              <span class="nav-item-num">02</span>
+              <div class="nav-item-content">
+                <span class="nav-item-title">The Craft</span>
+                <span class="nav-item-kanji">刀と職人技</span>
+              </div>
+              <span class="nav-item-desc">Blade Geometry & Shari Chemistry</span>
+              <span class="nav-item-arrow"><i data-lucide="arrow-right" style="width: 20px;"></i></span>
+            </a>
+
+            <a href="#menu" class="overlay-nav-item" data-index="2" data-preview="images/omakase_plate.jpg" data-kanji="献立" data-quote="18-course seasonal journey with live flavor analytics & custom flights.">
+              <span class="nav-item-num">03</span>
+              <div class="nav-item-content">
+                <span class="nav-item-title">Omakase Menu</span>
+                <span class="nav-item-kanji">季節のお品書き</span>
+              </div>
+              <span class="nav-item-desc">Catalog, Sommelier Dossiers & Flight Builder</span>
+              <span class="nav-item-arrow"><i data-lucide="arrow-right" style="width: 20px;"></i></span>
+            </a>
+
+            <a href="#experience" class="overlay-nav-item" data-index="3" data-preview="images/restaurant_ambiance.jpg" data-kanji="空間" data-quote="Yoshino Hinoki counter aged 300 years and acoustic washi lanterns.">
+              <span class="nav-item-num">04</span>
+              <div class="nav-item-content">
+                <span class="nav-item-title">The Atmosphere</span>
+                <span class="nav-item-kanji">侘び寂びの空間</span>
+              </div>
+              <span class="nav-item-desc">Hinoki Counter & Kyoto Tatami Suites</span>
+              <span class="nav-item-arrow"><i data-lucide="arrow-right" style="width: 20px;"></i></span>
+            </a>
+
+            <a href="#chef" class="overlay-nav-item" data-index="4" data-preview="images/master_chef.jpg" data-kanji="料理長" data-quote="35 years mastering the rhythm of seasonal ocean harvest.">
+              <span class="nav-item-num">05</span>
+              <div class="nav-item-content">
+                <span class="nav-item-title">Master Chef</span>
+                <span class="nav-item-kanji">料理長 · 高橋健二郎</span>
+              </div>
+              <span class="nav-item-desc">Chef Kenjiro Takahashi Biography</span>
+              <span class="nav-item-arrow"><i data-lucide="arrow-right" style="width: 20px;"></i></span>
+            </a>
+
+            <a href="#reservation" class="overlay-nav-item" data-index="5" data-preview="images/private_dining.jpg" data-kanji="予約" data-quote="Direct seat selection at the intimate 12-seat counter.">
+              <span class="nav-item-num">06</span>
+              <div class="nav-item-content">
+                <span class="nav-item-title">Reservation</span>
+                <span class="nav-item-kanji">お席の予約</span>
+              </div>
+              <span class="nav-item-desc">Book Hinoki Counter or Private Pavilion</span>
+              <span class="nav-item-arrow"><i data-lucide="arrow-right" style="width: 20px;"></i></span>
+            </a>
+
+            <a href="#contact" class="overlay-nav-item" data-index="6" data-preview="images/sake_drink.jpg" data-kanji="案内" data-quote="Ginza 6-Chome sanctuary, dress code, and concierge inquiries.">
+              <span class="nav-item-num">07</span>
+              <div class="nav-item-content">
+                <span class="nav-item-title">Contact & Access</span>
+                <span class="nav-item-kanji">店舗情報・アクセス</span>
+              </div>
+              <span class="nav-item-desc">Location, Concierge & Dress Code</span>
+              <span class="nav-item-arrow"><i data-lucide="arrow-right" style="width: 20px;"></i></span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Right Column: Interactive Visual Showcase on Hover -->
+        <div class="overlay-visual-col">
+          <div class="overlay-preview-card">
+            <div class="preview-img-container">
+              <img id="overlay-preview-img" src="images/chef_craft.jpg" alt="Section Preview" class="preview-img">
+              <div class="preview-gradient"></div>
+              <div class="preview-kanji-stamp" id="overlay-preview-kanji">哲学</div>
+            </div>
+            <div class="preview-caption">
+              <div class="preview-badge-row">
+                <span class="hanko-stamp" style="width: 22px; height: 22px; font-size: 0.62rem;">極</span>
+                <span class="preview-status-tag" id="overlay-preview-tag">SELECTED SECTION</span>
+              </div>
+              <p class="preview-quote" id="overlay-preview-quote">
+                300-year Edomae soul fused with architectural minimalism.
+              </p>
+            </div>
+          </div>
+
+          <div class="overlay-quick-cta">
+            <a href="#reservation" class="btn-sketch primary" style="width: 100%; text-align: center; padding: 13px 20px; font-size: 0.82rem;">
+              <span>Instant Counter Reservation →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- =========================================================================
+         2. HERO SCROLLYTELLING (scroll1.mp4) - Minimalist Dark Stage
+         ========================================================================= -->
+    <section id="hero" class="hero-scrolly-section section-dark">
+      <div class="hero-sticky-stage">
+        <!-- Ultra High-Performance Frame Canvas -->
+        <div class="hero-video-wrap">
+          <canvas id="hero-canvas" class="scrolly-video-el"></canvas>
+        </div>
+
+        <!-- Subtle Ambient Gradient -->
+        <div class="hero-gradient-overlay"></div>
+
+        <!-- Japanese Calligraphy Background Accents -->
+        <div class="kanji-watermark" style="top: 15%; right: 6%; font-size: clamp(8rem, 15vw, 16rem);">円</div>
+        <div class="kanji-watermark red" style="bottom: 12%; left: 4%; font-size: clamp(6rem, 11vw, 13rem);">鮨</div>
+
+        <!-- Minimalist Hero UI: Strictly Single Pure Typography Statement (No buttons, Zero clutter) -->
+        <div class="hero-ui-layer">
+          <div class="hero-single-statement">
+            <span class="hero-kanji-sub">江戸前寿司の真髄</span>
+            <h1 class="hero-main-title">
+              <span>RAW</span>
+              <span class="hero-outline-text">PERFECTION</span>
+            </h1>
+            <p class="hero-tagline-minimal">
+              Where 300-year Edomae mastery meets architectural geometry.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. PHILOSOPHY / ABOUT US - Light Washi Paper Container
+         ========================================================================= -->
+    <section id="philosophy" class="philosophy-section section-light bg-seigaiha-pencil">
+      <!-- Background Calligraphy -->
+      <div class="kanji-watermark" style="top: 15%; right: 4%; font-size: 14rem;">技</div>
+
+      <div class="container">
+        <!-- Section Header with Japanese Cultural Motifs -->
+        <div class="section-head">
+          <div class="section-tagline">
+            <span class="torii-mark"></span>
+            <span class="hanko-stamp" style="width: 24px; height: 24px; font-size: 0.65rem;">侘寂</span>
+            <span>The Shokunin Trinity · 職人の精神</span>
+          </div>
+          <h2 class="section-title">A Dialogue of Time, <br><span class="sketch-underline">Blade & Temperature</span></h2>
+          <p class="section-subtitle">
+            Rooted in the Japanese aesthetic of <em>Wabi-Sabi</em> (finding beauty in simplicity and imperfection) and <em>Ma</em> (the intentional power of negative space).
+          </p>
+          <div class="sketch-note" style="margin-top: 8px;">
+            <span>✦ "Every grain of rice carries the temperature of human intention."</span>
+          </div>
+        </div>
+
+        <div class="kintsugi-divider"></div>
+
+        <!-- Trinity Grid Cards (Light Washi Paper Cards with Hand-Drawn Borders) -->
+        <div class="philosophy-grid">
+          <!-- Pillar 1: Shun -->
+          <div class="philosophy-card sketch-border-light tilt-card">
+            <div>
+              <div class="philosophy-card-top">
+                <span class="philosophy-kanji">旬</span>
+                <span class="philosophy-num">01 / SHUN</span>
+              </div>
+              <h3 class="philosophy-card-title">Ephemeral Seasonality</h3>
+              <p class="philosophy-card-desc">
+                Every species arrives at peak umami for merely two to three weeks each year. Sourced daily from generational line-caught dayboats across Honshu and Hokkaido.
+              </p>
+            </div>
+            <div class="philosophy-card-footer">
+              <span>Toyosu Market Direct</span>
+              <span class="text-red" style="font-weight: 700;">Wild Catch</span>
+            </div>
+          </div>
+
+          <!-- Pillar 2: Waza -->
+          <div class="philosophy-card sketch-border-light tilt-card" style="border-color: var(--color-red-primary);">
+            <div>
+              <div class="philosophy-card-top">
+                <span class="philosophy-kanji" style="color: var(--color-red-primary);">技</span>
+                <span class="philosophy-num">02 / WAZA</span>
+              </div>
+              <h3 class="philosophy-card-title">240-Layer Blade Precision</h3>
+              <p class="philosophy-card-desc">
+                From the Ikejime humane harvest to custom Damascus sashimi steel, micro-diamond scoring breaks down muscle fibers for immediate melt-in-mouth richness.
+              </p>
+            </div>
+            <div class="philosophy-card-footer">
+              <span>Damascus Katana Edge</span>
+              <span class="text-red" style="font-weight: 700;">0.2mm Cut</span>
+            </div>
+          </div>
+
+          <!-- Pillar 3: Kokoro -->
+          <div class="philosophy-card sketch-border-light tilt-card">
+            <div>
+              <div class="philosophy-card-top">
+                <span class="philosophy-kanji">心</span>
+                <span class="philosophy-num">03 / KOKORO</span>
+              </div>
+              <h3 class="philosophy-card-title">The Soul of Shari Rice</h3>
+              <p class="philosophy-card-desc">
+                Koshihikari rice cooked in mountain spring water, seasoned with 10-year aged red sake lees vinegar (Akasu), calibrated strictly to body temperature (36.5°C).
+              </p>
+            </div>
+            <div class="philosophy-card-footer">
+              <span>10-Yr Aged Akasu</span>
+              <span class="text-red" style="font-weight: 700;">36.5°C Shari</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. CRAFT STORY SCROLLYTELLING (scroll2.mp4) - Minimalist Dark Stage
+         ========================================================================= -->
+    <section id="craft" class="craft-scrolly-section section-dark">
+      <div class="craft-sticky-stage">
+        <!-- Ultra High-Performance Frame Canvas -->
+        <div class="craft-video-wrap">
+          <canvas id="craft-canvas" class="scrolly-video-el"></canvas>
+        </div>
+
+        <!-- Subtle Top & Bottom Gradient for maximum video visibility -->
+        <div class="hero-gradient-overlay"></div>
+
+        <!-- Floating Minimalist HUD at Bottom -->
+        <div class="craft-hud-container">
+          <div class="craft-hud-box">
+            <div class="craft-hud-left">
+              <span class="hanko-stamp" style="width: 32px; height: 32px; font-size: 0.85rem;">刀</span>
+              <div>
+                <span id="craft-hud-stage" class="craft-hud-stage-num">STAGE 01 / 厳選</span>
+                <h4 id="craft-hud-title" class="craft-hud-title">Ikejime Line-Caught Harvest</h4>
+              </div>
+            </div>
+            <p id="craft-hud-desc" class="craft-hud-desc">
+              Spinal cord deactivation at sea in Honshu waters preserves pristine cellular integrity and umami freshness.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. OMAKASE & SEASONAL MENU - Light Washi Paper Container
+         ========================================================================= -->
+    <!-- =========================================================================
+         5. OMAKASE & GASTRONOMIC MENU - Natural Rotating Round Table (職人の回転膳)
+         ========================================================================= -->
+    <section id="menu" class="menu-section section-light">
+      <div class="container">
+        <!-- Modern Avant-Garde Section Header -->
+        <div class="section-head menu-section-head">
+          <div class="menu-head-left">
+            <div class="section-tagline">
+              <span class="hanko-stamp-animated">匠</span>
+              <span class="zen-tag-pill">HAUTE GASTRONOMY · 職人の回転膳</span>
+            </div>
+            <h2 class="section-title">
+              The Shokunin <span class="shokunin-gold-text">Round Counter</span>
+              <span class="jp-title-sub">旬の回転御膳</span>
+            </h2>
+            <p class="section-subtitle">
+              Mastercrafted Edomae selections presented on bespoke Mino-yaki ceramics, gracefully revolving along the Hinoki timber stage.
+            </p>
+          </div>
+
+          <!-- Modern Japanese Capsule Filter Navigation -->
+          <div class="zen-category-dock">
+            <button class="zen-cat-btn active" data-category="all">
+              <span class="zen-cat-kanji">全</span>
+              <span class="zen-cat-name">All Offerings</span>
+            </button>
+            <button class="zen-cat-btn" data-category="platters">
+              <span class="zen-cat-kanji">盛</span>
+              <span class="zen-cat-name">Signature Platters</span>
+            </button>
+            <button class="zen-cat-btn" data-category="donburi">
+              <span class="zen-cat-kanji">丼</span>
+              <span class="zen-cat-name">Donburi Bowls</span>
+            </button>
+            <button class="zen-cat-btn" data-category="rolls">
+              <span class="zen-cat-kanji">巻</span>
+              <span class="zen-cat-name">Artisan Rolls</span>
+            </button>
+            <button class="zen-cat-btn" data-category="salad">
+              <span class="zen-cat-kanji">草</span>
+              <span class="zen-cat-name">Garden & Kaisou</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- MAIN NATURAL ROTATING TABLE STAGE FLOW -->
+        <div class="natural-table-flow">
+          
+          <!-- 1. Rotating Round Dining Table Viewport -->
+          <div class="table-stage-viewport" id="table-stage-viewport">
+            <!-- Wooden Round Table Surface -->
+            <div class="table-round-surface">
+              <div class="table-wood-ring outer"></div>
+              <div class="table-wood-ring mid"></div>
+              <div class="table-wood-ring center-hub">
+                <span class="table-center-kanji">円村</span>
+              </div>
+            </div>
+
+            <!-- 3D Orbit Plate Track (Populated with real transparent sushi plates by JS) -->
+            <div class="table-plates-orbit" id="table-plates-orbit"></div>
+
+            <!-- Drag Hint -->
+            <div class="table-drag-hint">
+              <i data-lucide="rotate-cw" style="width: 14px; height: 14px;"></i>
+              <span>Drag table or click plate to rotate</span>
+            </div>
+
+            <!-- Table Stage Controls & Active Dish HUD Dock -->
+            <div class="table-stage-controls">
+              <button id="table-prev-btn" class="table-nav-arrow left" title="Previous Course (前の品)">
+                <i data-lucide="chevron-left" style="width: 18px; height: 18px;"></i>
+                <span>Prev</span>
+              </button>
+
+              <div class="table-active-dish-hud">
+                <div class="table-course-indicator">
+                  <span id="table-course-num" class="course-kanji-num">壱</span>
+                  <span class="course-sep">/</span>
+                  <span id="table-course-total" class="course-total-num">07</span>
+                </div>
+                <div class="table-hud-divider"></div>
+                <div class="table-hud-info">
+                  <h3 id="table-hud-title" class="table-hud-title">Supreme Rainbow Dragon Platter</h3>
+                  <span id="table-hud-price" class="table-hud-price">$48</span>
+                </div>
+              </div>
+
+              <button id="table-next-btn" class="table-nav-arrow right" title="Next Course (次の品)">
+                <span>Next</span>
+                <i data-lucide="chevron-right" style="width: 18px; height: 18px;"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. THE ATMOSPHERE & PRIVATE DINING - Dark Lacquer Container
+         ========================================================================= -->
+    <section id="experience" class="experience-section section-dark">
+      <!-- Authentic Minimalist Japanese Cultural Vector Symbols Backdrop -->
+      <div class="dark-zen-backdrop" aria-hidden="true">
+        <!-- Delicate Asanoha / Seigaiha Geometry Lattices -->
+        <div class="zen-geometric-lattice"></div>
+        
+        <!-- 1. Japanese Art Graphic (fon1.png placed at bottom-right) -->
+        <div class="fon1-symbol-wrap">
+          <img src="fon1.png" alt="Japanese Art Graphic" class="fon1-img" loading="lazy">
+        </div>
+
+        <!-- 2. Sacred Inari Kitsune Fox (Left Flank) -->
+        <div class="kitsune-symbol-wrap">
+          <svg viewBox="0 0 200 240" class="kitsune-svg" fill="none">
+            <!-- Graceful Sitting Fox Body & Tail Curve -->
+            <path d="M110,220 C140,220 170,200 175,160 C180,115 145,85 130,70" stroke="rgba(197, 168, 128, 0.45)" stroke-width="1.4" stroke-linecap="round"/>
+            <!-- Fluffy Tail Plume -->
+            <path d="M175,160 C190,130 185,90 160,70 C145,60 135,75 145,95 C155,115 165,145 150,175" stroke="rgba(218, 165, 32, 0.4)" stroke-width="1.2"/>
+            <!-- Fox Head & Majestic Pointed Ears -->
+            <path d="M90,75 L80,30 L105,50 L125,50 L150,30 L140,75 Z" stroke="rgba(197, 168, 128, 0.65)" stroke-width="1.4" fill="rgba(20, 20, 22, 0.6)"/>
+            <!-- Muzzle & Snout -->
+            <path d="M92,75 Q115,105 115,110 Q115,105 138,75" stroke="rgba(197, 168, 128, 0.65)" stroke-width="1.4"/>
+            <circle cx="115" cy="108" r="2.5" fill="rgba(230, 57, 70, 0.95)"/>
+            <!-- Sacred Red Inari Eye Markings -->
+            <path d="M98,68 Q106,64 110,70" stroke="rgba(230, 57, 70, 0.85)" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M132,68 Q124,64 120,70" stroke="rgba(230, 57, 70, 0.85)" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Sacred Forehead Flame (Hoju Jewel) -->
+            <path d="M115,48 C110,38 120,32 115,22 C110,32 120,38 115,48 Z" fill="rgba(230, 57, 70, 0.75)" stroke="rgba(218, 165, 32, 0.85)" stroke-width="1"/>
+            <!-- Chest Bib / Sacred Cord -->
+            <path d="M95,115 Q115,135 135,115" stroke="rgba(230, 57, 70, 0.65)" stroke-width="1.2"/>
+            <!-- Front Paws Silhouette -->
+            <path d="M102,125 L98,220 M128,125 L132,220" stroke="rgba(197, 168, 128, 0.4)" stroke-width="1.2"/>
+          </svg>
+          <span class="symbol-caption">神聖な稲荷狐 · SACRED INARI KITSUNE</span>
+        </div>
+
+        <!-- 3. Sacred Swimming Nishikigoi Carp (Right Flank) -->
+        <div class="koi-symbol-wrap">
+          <svg viewBox="0 0 240 180" class="koi-svg" fill="none">
+            <!-- S-Curve Koi Body -->
+            <path d="M30,130 C60,150 120,130 160,80 C190,40 210,45 230,30" stroke="rgba(218, 165, 32, 0.5)" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M40,140 C80,165 140,135 175,90 C200,60 215,65 230,30" stroke="rgba(197, 168, 128, 0.4)" stroke-width="1.2"/>
+            <!-- Flowing Koi Fins & Tail Ribs -->
+            <path d="M25,125 C10,120 5,140 0,155 C15,150 25,140 35,135" stroke="rgba(230, 57, 70, 0.65)" stroke-width="1.2" fill="rgba(230, 57, 70, 0.15)"/>
+            <path d="M120,140 C125,160 140,170 150,175 C145,160 135,145 130,135" stroke="rgba(218, 165, 32, 0.45)" stroke-width="1"/>
+            <!-- Whisker Barbels & Head Crown -->
+            <path d="M225,25 Q235,15 240,18 M230,32 Q238,36 240,42" stroke="rgba(218, 165, 32, 0.65)" stroke-width="1"/>
+            <circle cx="218" cy="35" r="2" fill="rgba(230, 57, 70, 0.85)"/>
+            <!-- Water Wave Ripples -->
+            <ellipse cx="140" cy="100" rx="60" ry="25" stroke="rgba(197, 168, 128, 0.18)" stroke-width="0.8" stroke-dasharray="4 6"/>
+          </svg>
+          <span class="symbol-caption">錦鯉 · SACRED NISHIKIGOI</span>
+        </div>
+
+        <!-- 4. Soaring Japanese Crane (Tsuru) -->
+        <div class="crane-symbol-wrap">
+          <svg viewBox="0 0 200 160" class="crane-svg" fill="none">
+            <path d="M100,80 L170,20 Q140,60 115,75 L180,95 Q130,95 100,90 L40,140 Q65,100 85,88 L20,60 Q70,70 100,80 Z" stroke="rgba(197, 168, 128, 0.5)" stroke-width="1.2" fill="rgba(255, 255, 255, 0.03)"/>
+            <circle cx="102" cy="76" r="3" fill="rgba(230, 57, 70, 0.9)"/>
+            <path d="M40,140 L15,160 M45,138 L25,158" stroke="rgba(197, 168, 128, 0.35)" stroke-width="1"/>
+          </svg>
+        </div>
+
+        <!-- Fine Golden Kintsugi Seam Lines -->
+        <svg class="dark-kintsugi-seam" viewBox="0 0 1200 400" fill="none" preserveAspectRatio="none">
+          <path d="M0,180 Q250,220 500,160 T900,210 Q1050,170 1200,190" stroke="url(#kintsugiGlow)" stroke-width="1.2" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="kintsugiGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#c5a880" stop-opacity="0"/>
+              <stop offset="30%" stop-color="#d4af37" stop-opacity="0.25"/>
+              <stop offset="60%" stop-color="#e63946" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#c5a880" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <!-- Vertical Subtle Japanese Inscription -->
+        <div class="dark-zen-vertical-label">
+          <span>富士と稲荷 · 侘寂の美</span>
+        </div>
+      </div>
+
+      <div class="container relative-z2">
+        <!-- Section Header -->
+        <div class="section-head">
+          <div class="section-tagline" style="color: var(--color-red-vibrant);">
+            <span class="hanko-stamp" style="width: 24px; height: 24px; font-size: 0.65rem;">空間</span>
+            <span>Sensory Sanctuary · 侘びの空間</span>
+          </div>
+          <h2 class="section-title">The Architecture <span class="sketch-underline">of Stillness</span></h2>
+          <p class="section-subtitle">
+            Crafted from 300-year-old Yoshino Hinoki cypress wood, volcanic basalt stone, and acoustic paper lanterns.
+          </p>
+        </div>
+
+        <!-- 2-Column Atmosphere Cards -->
+        <div class="experience-grid">
+          <!-- Card 1: Hinoki Counter -->
+          <div class="experience-card sketch-border-dark tilt-card">
+            <div class="experience-card-bg">
+              <img src="images/restaurant_ambiance.jpg" alt="Hinoki Omakase Counter" loading="lazy">
+            </div>
+            <div class="experience-gradient"></div>
+            <div class="experience-info">
+              <div class="experience-capacity">12-SEAT CHEF COUNTER · INTIMATE SEATING</div>
+              <h3 class="experience-name">The Hinoki Omakase Counter</h3>
+              <p class="experience-desc">
+                An uninterrupted view of the master's blade craft. Pieces served directly to guests within 8 seconds of pressing.
+              </p>
+              <a href="#reservation" class="btn-sketch primary" style="padding: 9px 18px; font-size: 0.75rem;">
+                <span>Reserve Counter Seats</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Private Tatami Suite -->
+          <div class="experience-card sketch-border-dark tilt-card">
+            <div class="experience-card-bg">
+              <img src="images/private_dining.jpg" alt="Private Tatami Suite" loading="lazy">
+            </div>
+            <div class="experience-gradient"></div>
+            <div class="experience-info">
+              <div class="experience-capacity">UP TO 8 GUESTS · PRIVATE SOMMELIER</div>
+              <h3 class="experience-name">The Kyoto Pavilion Suite</h3>
+              <p class="experience-desc">
+                Enclosed by hand-woven washi screens and a private Japanese rock garden view. Ideal for confidential executive dinners.
+              </p>
+              <a href="#reservation" class="btn-sketch" style="padding: 9px 18px; font-size: 0.75rem;">
+                <span>Reserve Private Suite</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. TABLE RESERVATION WIZARD - Light Washi Paper Container
+         ========================================================================= -->
+    <section id="reservation" class="reservation-section section-light bg-seigaiha-pencil">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-head" style="text-align: center; max-width: 680px; margin-left: auto; margin-right: auto;">
+          <div class="section-tagline" style="justify-content: center;">
+            <span class="hanko-stamp" style="width: 24px; height: 24px; font-size: 0.65rem;">予約</span>
+            <span>Omakase Table Booking · 席の予約</span>
+          </div>
+          <h2 class="section-title">Reserve Your <span class="sketch-underline">Seat at the Counter</span></h2>
+          <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">
+            Strictly limited to 24 guests per evening to preserve the highest caliber of personalized gastronomy.
+          </p>
+        </div>
+
+        <!-- Reservation Container Box -->
+        <div class="reservation-box sketch-border-light">
+          <!-- Step Progress Indicator -->
+          <div class="booking-progress-bar">
+            <div class="progress-step active" data-step-indicator="1">
+              <div class="step-circle">1</div>
+              <span class="step-label">Experience</span>
+            </div>
+            <div class="progress-step" data-step-indicator="2">
+              <div class="step-circle">2</div>
+              <span class="step-label">Date & Time</span>
+            </div>
+            <div class="progress-step" data-step-indicator="3">
+              <div class="step-circle">3</div>
+              <span class="step-label">Guest Details</span>
+            </div>
+            <div class="progress-step" data-step-indicator="4">
+              <div class="step-circle">4</div>
+              <span class="step-label">Pass Confirmation</span>
+            </div>
+          </div>
+
+          <!-- STEP 1: Experience Choice -->
+          <div class="booking-step-panel active" data-step="1">
+            <h4 style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--text-light-primary); margin-bottom: 16px;">
+              Select Dining Atmosphere:
+            </h4>
+            <div class="experience-options-grid">
+              <div class="exp-option-card selected" data-experience="omakase_counter">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                  <span class="hanko-stamp" style="width: 30px; height: 30px; font-size: 0.8rem;">席</span>
+                  <span class="exp-price" style="font-family: var(--font-mono); font-size: 1.05rem; color: var(--color-red-primary); font-weight: 700;">$285 / Guest</span>
+                </div>
+                <h5 class="exp-title" style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--text-light-primary); margin-bottom: 4px;">
+                  Main Hinoki Omakase Counter
+                </h5>
+                <p style="font-size: 0.85rem; color: var(--text-light-secondary); line-height: 1.45;">
+                  Direct seat before Master Kenji. 18-course choreographed Edomae omakase served piece-by-piece.
+                </p>
+              </div>
+
+              <div class="exp-option-card" data-experience="private_tatami">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                  <span class="hanko-stamp" style="width: 30px; height: 30px; font-size: 0.8rem;">室</span>
+                  <span class="exp-price" style="font-family: var(--font-mono); font-size: 1.05rem; color: var(--color-red-primary); font-weight: 700;">$340 / Guest</span>
+                </div>
+                <h5 class="exp-title" style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--text-light-primary); margin-bottom: 4px;">
+                  Kyoto Pavilion Private Suite
+                </h5>
+                <p style="font-size: 0.85rem; color: var(--text-light-secondary); line-height: 1.45;">
+                  Secluded tatami suite with dedicated server & sommelier sake pairings. Min 4, Max 8 guests.
+                </p>
+              </div>
+            </div>
+
+            <div class="booking-nav-buttons" style="justify-content: flex-end;">
+              <button class="btn-sketch primary" data-action="next-step">
+                <span>Continue to Date & Seating</span>
+                <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 2: Date, Time & Guests -->
+          <div class="booking-step-panel" data-step="2">
+            <h4 style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--text-light-primary); margin-bottom: 16px;">
+              Choose Date, Seating & Party Size:
+            </h4>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Reservation Date</label>
+                <input type="date" id="book-date" class="form-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Number of Guests</label>
+                <select id="book-guests" class="form-select">
+                  <option value="1">1 Guest (Solo Counter Omakase)</option>
+                  <option value="2" selected>2 Guests (Standard Pair)</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="6">6 Guests (Private Suite)</option>
+                  <option value="8">8 Guests (Full Suite Buyout)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label class="form-label">Select Seating Time:</label>
+              <div class="time-slots-grid">
+                <button class="time-slot-btn" data-time="12:30">12:30 (Lunch)</button>
+                <button class="time-slot-btn" data-time="14:00">14:00 (Lunch)</button>
+                <button class="time-slot-btn selected" data-time="18:30">18:30 (Dinner 1st)</button>
+                <button class="time-slot-btn" data-time="20:45">20:45 (Dinner 2nd)</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Dietary Preferences</label>
+              <select id="book-dietary" class="form-select">
+                <option value="No Restrictions" selected>No Dietary Restrictions (Full Chef Selection)</option>
+                <option value="No Shellfish / Crustaceans">No Shellfish / Crustaceans</option>
+                <option value="Gluten-Free Tamari Accommodated">Gluten-Free Tamari Accommodated</option>
+                <option value="Pescatarian (No Red Meat/Wagyu)">Pescatarian (No Red Meat/Wagyu)</option>
+                <option value="Pregnant Friendly (Torched/Cooked Only)">Pregnant Friendly (Torched/Cooked Only)</option>
+              </select>
+            </div>
+
+            <div class="booking-nav-buttons">
+              <button class="btn-sketch" data-action="prev-step">
+                <span>Back</span>
+              </button>
+              <button class="btn-sketch primary" data-action="next-step">
+                <span>Continue to Guest Details</span>
+                <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 3: Guest Details -->
+          <div class="booking-step-panel" data-step="3">
+            <h4 style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--text-light-primary); margin-bottom: 16px;">
+              Guest Contact Information:
+            </h4>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input type="text" id="book-name" class="form-input" placeholder="e.g. Kenji Tanaka / Sarah Jenkins" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" id="book-email" class="form-input" placeholder="e.g. guest@luxury.com" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Mobile Phone</label>
+                <input type="tel" id="book-phone" class="form-input" placeholder="+1 (555) 019-2834" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Special Notes / Occasion</label>
+                <input type="text" id="book-notes" class="form-input" placeholder="Anniversary / Sommelier Sake Pairing">
+              </div>
+            </div>
+
+            <div class="booking-nav-buttons">
+              <button class="btn-sketch" data-action="prev-step">
+                <span>Back</span>
+              </button>
+              <button class="btn-sketch primary" data-action="next-step">
+                <span>Confirm & Issue VIP Pass</span>
+                <i data-lucide="check" style="width: 15px; height: 15px;"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 4: Confirmation Pass (Dynamically rendered) -->
+          <div class="booking-step-panel" data-step="4">
+            <div id="booking-confirmation-container">
+              <!-- Rendered by js/reservation.js -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. MASTER CHEF & PHILOSOPHY - Dark Sumi Ink Container
+         ========================================================================= -->
+    <section id="chef" class="chef-section section-dark">
+      <div class="container">
+        <div class="chef-layout">
+          <!-- Chef Photography with Hanko Stamp -->
+          <div class="chef-image-box sketch-border-dark">
+            <img src="images/master_chef.jpg" alt="Master Chef Kenji Takahashi" loading="lazy">
+            <div class="hanko-stamp large chef-hanko-seal">高橋</div>
+          </div>
+
+          <!-- Chef Biography & Accolades -->
+          <div>
+            <div class="section-tagline" style="color: var(--color-red-vibrant);">
+              <span class="hanko-stamp" style="width: 24px; height: 24px; font-size: 0.65rem;">師匠</span>
+              <span>The Shokunin Master · 料理長</span>
+            </div>
+            <h2 class="section-title">Master Kenji Takahashi <br><span class="sketch-underline">高橋 健二</span></h2>
+            
+            <blockquote class="chef-quote">
+              "The knife is not a tool to cut fish; it is a brush that paints taste onto time. You do not force nature — you listen to the ocean's whisper."
+            </blockquote>
+
+            <p style="color: #c4c4cc; font-size: 0.92rem; line-height: 1.65; margin-bottom: 16px;">
+              Born in Shizuoka and trained for over 28 years under legendary Ginza shokunin masters, Chef Kenji Takahashi founded ENSON to realize a sanctuary where Edomae rigor meets modern architectural restraint.
+            </p>
+
+            <div class="chef-awards-row">
+              <div class="award-item">
+                <span class="award-title">Michelin Selected</span>
+                <span class="award-subtitle">Tokyo Gastronomy Guide</span>
+              </div>
+              <div class="award-item">
+                <span class="award-title">Gold Medalist</span>
+                <span class="award-subtitle">World Omakase Championship</span>
+              </div>
+              <div class="award-item">
+                <span class="award-title">Grand Shokunin</span>
+                <span class="award-subtitle">Japanese Culinary Ministry</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Japanese Red Pagoda Symbol (Bottom Right, Static & Translucent) -->
+      <div class="chef-pagoda-symbol" aria-hidden="true">
+        <img src="j1.png" alt="Japanese Pagoda Symbol" class="chef-pagoda-img" loading="lazy">
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. LOCATION, ACCESS & CONTACT - Light Washi Paper Container
+         ========================================================================= -->
+    <section id="contact" class="contact-section section-light bg-seigaiha-pencil">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Left: Location & Access details -->
+          <div>
+            <div class="section-tagline">
+              <span class="hanko-stamp" style="width: 24px; height: 24px; font-size: 0.65rem;">案内</span>
+              <span>Sanctuary & Access · アクセス</span>
+            </div>
+            <h2 class="section-title">Finding <span class="sketch-underline">ENSON</span></h2>
+            <p class="section-subtitle">
+              Located in the quiet backstreets of Ginza 6-Chome, tucked behind a discreet cedar wood noren curtain.
+            </p>
+
+            <div class="contact-info-list">
+              <div class="contact-item">
+                <div class="contact-icon"><i data-lucide="map-pin"></i></div>
+                <div>
+                  <span class="contact-heading">Address</span>
+                  <div class="contact-val">6-12-8 Ginza, Chuo-ku, Tokyo 104-0061, Japan</div>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon"><i data-lucide="clock"></i></div>
+                <div>
+                  <span class="contact-heading">Service Hours</span>
+                  <div class="contact-val">
+                    Lunch: 12:00 – 15:00 (Wed – Sun)<br>
+                    Dinner (2 Seatings): 18:30 & 20:45 (Tue – Sun)
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon"><i data-lucide="phone"></i></div>
+                <div>
+                  <span class="contact-heading">Direct Concierge</span>
+                  <div class="contact-val">+81 3-5568-9200 · concierge@ensonsushi.com</div>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon"><i data-lucide="shield-check"></i></div>
+                <div>
+                  <span class="contact-heading">Dress Code & Etiquette</span>
+                  <div class="contact-val">Smart Elegant. We kindly request guests refrain from wearing heavy perfumes to respect the delicate aroma of raw fish.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Direct Message Box -->
+          <div class="sketch-border-light" style="padding: clamp(28px, 4vw, 44px); background: #ffffff;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--text-light-primary);">Private Inquiries & Events</h3>
+              <span class="hanko-stamp">問</span>
+            </div>
+
+            <form onsubmit="event.preventDefault(); alert('Thank you. Our Private Dining Concierge will contact you within 4 hours.'); this.reset();">
+              <div class="form-group" style="margin-bottom: 14px;">
+                <label class="form-label">Your Name</label>
+                <input type="text" class="form-input" placeholder="Full Name" required>
+              </div>
+              <div class="form-group" style="margin-bottom: 14px;">
+                <label class="form-label">Email or Phone</label>
+                <input type="text" class="form-input" placeholder="contact@domain.com" required>
+              </div>
+              <div class="form-group" style="margin-bottom: 20px;">
+                <label class="form-label">Message / Buyout Details</label>
+                <textarea class="form-input" rows="4" placeholder="Tell us about your event, corporate buyout, or sommelier tasting..." style="resize: vertical;"></textarea>
+              </div>
+              <button type="submit" class="btn-sketch primary" style="width: 100%;">
+                <span>Dispatch Inquiry</span>
+                <i data-lucide="send" style="width: 15px; height: 15px;"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       10. DISH DETAIL MODAL
+       ========================================================================= -->
+  <div id="dish-modal" class="modal-backdrop">
+    <div class="modal-card">
+      <button id="modal-close-btn" class="modal-close-btn" aria-label="Close Dish Inspection">
+        <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+      </button>
+      <div id="modal-dynamic-content" style="display: contents;">
+        <!-- Populated by js/menu-filter.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       11. FOOTER - Dark Ink Section
+       ========================================================================= -->
+  <footer class="site-footer section-dark">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand & Logo -->
+        <div>
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+            <img src="logo.svg" alt="ENSON Logo" style="height: 48px; width: auto;">
+            <div>
+              <span style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 800; color: #ffffff; letter-spacing: 0.1em;">ENSON</span>
+              <span style="display: block; font-family: var(--font-mono); font-size: 0.65rem; color: var(--color-red-vibrant); letter-spacing: 0.2em;">円村 · 鮨</span>
+            </div>
+          </div>
+          <p class="footer-brand-bio">
+            An uncompromising homage to Edomae sushi craftsmanship, architectural minimalism, and the raw poetry of the Pacific Ocean.
+          </p>
+        </div>
+
+        <!-- Col 2: Navigation Links -->
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#philosophy">The Philosophy</a></li>
+            <li><a href="#craft">The Craft & Knife</a></li>
+            <li><a href="#menu">Omakase Catalog</a></li>
+            <li><a href="#experience">The Hinoki Counter</a></li>
+            <li><a href="#chef">Master Kenji Takahashi</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Experiences -->
+        <div>
+          <h4 class="footer-col-title">Experiences</h4>
+          <ul class="footer-links">
+            <li><a href="#reservation">18-Course Grand Omakase</a></li>
+            <li><a href="#reservation">Kyoto Pavilion Buyout</a></li>
+            <li><a href="#menu">Master Sake Flight</a></li>
+            <li><a href="#contact">Private Catering</a></li>
+            <li><a href="#contact">Gift Experiences</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Newsletter -->
+        <div>
+          <h4 class="footer-col-title">The Seasonal Letter</h4>
+          <p style="font-size: 0.82rem; color: #a1a1aa; margin-bottom: 14px; line-height: 1.5;">
+            Receive exclusive notifications when rare seasonal Toyosu catches arrive.
+          </p>
+          <form onsubmit="event.preventDefault(); alert('Subscribed to the ENSON Seasonal Letter.'); this.reset();" style="display: flex; gap: 6px;">
+            <input type="email" class="form-input" placeholder="Your email" style="padding: 9px 12px; font-size: 0.8rem; background: #18181b; color: #ffffff; border-color: rgba(255,255,255,0.15);" required>
+            <button type="submit" class="btn-sketch primary" style="padding: 9px 14px;">
+              <span>Join</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Legal & Back to Top -->
+      <div class="footer-bottom-bar">
+        <div>
+          © 2026 ENSON SUSHI (円村). All Rights Reserved. Ginza, Tokyo.
+        </div>
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <span style="font-family: var(--font-kanji); color: var(--color-red-vibrant);">一期一会 (Ichigo Ichie)</span>
+          <button id="back-to-top" class="back-to-top-btn">
+            <span>Top</span>
+            <i data-lucide="arrow-up" style="width: 13px; height: 13px;"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/scrolly-video.js?v=7.6"></script>
+  <script src="js/menu-filter.js?v=7.6"></script>
+  <script src="js/reservation.js?v=7.6"></script>
+  <script src="js/app.js?v=7.6"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

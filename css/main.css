@@ -1,0 +1,285 @@
+/* ==========================================================================
+   ENSON SUSHI - MAIN DESIGN SYSTEM & CORE TOKENS
+   Awwwards Caliber: Alternating Light Washi Paper & Dark Sumi Ink Containers
+   Pencil Sketch, Charcoal Graphite, Imperial Crimson & Authentic Japanese Culture
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Serif+JP:wght@300;400;600;700;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Reenie+Beanie&family=Caveat:wght@400;600;700&display=swap');
+
+:root {
+  /* Dark Container Tokens (Sumi Ink / Night) */
+  --bg-dark-primary: #09090b;
+  --bg-dark-secondary: #121215;
+  --bg-dark-card: rgba(18, 18, 22, 0.75);
+  --border-dark-sketch: rgba(255, 255, 255, 0.14);
+  --text-dark-primary: #faf8f5;
+  --text-dark-muted: #a1a1aa;
+  
+  /* Light Container Tokens (Washi Paper / Day) */
+  --bg-light-primary: #f8f6f0;
+  --bg-light-secondary: #efece4;
+  --bg-light-card: #ffffff;
+  --border-light-sketch: rgba(20, 20, 20, 0.2);
+  --border-light-rough: rgba(20, 20, 20, 0.35);
+  --text-light-primary: #141416;
+  --text-light-secondary: #2d2d32;
+  --text-light-muted: #6b6b76;
+  
+  /* Accent Colors */
+  --color-red-primary: #c8102e;
+  --color-red-vibrant: #e63946;
+  --color-red-glow: rgba(230, 57, 70, 0.35);
+  --color-gold: #c5a059;
+  --color-graphite: #4a4a4f;
+  
+  /* Typography Tokens */
+  --font-serif: 'Cinzel', 'Noto Serif JP', serif;
+  --font-kanji: 'Noto Serif JP', 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+  --font-handwriting: 'Caveat', cursive;
+  
+  /* Layout */
+  --container-max: 1400px;
+  --section-padding: clamp(80px, 9vw, 150px);
+  
+  /* Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.4s var(--ease-out-expo);
+  --transition-fast: 0.2s ease-out;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  background-color: var(--bg-dark-primary);
+  color: var(--text-dark-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-dark-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Alternating Container Section Themes */
+.section-dark {
+  background-color: var(--bg-dark-primary);
+  color: var(--text-dark-primary);
+  position: relative;
+}
+
+.section-dark .section-title {
+  color: #ffffff;
+}
+
+.section-dark .section-subtitle {
+  color: var(--text-dark-muted);
+}
+
+.section-light {
+  background-color: var(--bg-light-primary);
+  color: var(--text-light-primary);
+  position: relative;
+}
+
+.section-light .section-title {
+  color: var(--text-light-primary);
+}
+
+.section-light .section-subtitle {
+  color: var(--text-light-muted);
+}
+
+.section-light .section-tagline {
+  color: var(--color-red-primary);
+}
+
+/* Washi Paper Fine Grain Texture */
+.section-light::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+/* Global Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 4vw, 48px);
+  padding-right: clamp(20px, 4vw, 48px);
+  position: relative;
+  z-index: 2;
+}
+
+/* Global Noise Texture (Optimized Hardware-Accelerated) */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 0);
+  background-size: 3px 3px;
+  transform: translateZ(0);
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.font-kanji {
+  font-family: var(--font-kanji);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-hand {
+  font-family: var(--font-handwriting);
+}
+
+.text-red {
+  color: var(--color-red-vibrant);
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+/* Custom Interactive Cursor */
+.custom-cursor {
+  position: fixed;
+  top: -5px;
+  left: -5px;
+  width: 10px;
+  height: 10px;
+  background: var(--color-red-vibrant);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100000;
+  will-change: transform;
+  transition: width 0.3s var(--ease-out-expo), height 0.3s var(--ease-out-expo), background 0.3s;
+}
+
+.custom-cursor-follower {
+  position: fixed;
+  top: -18px;
+  left: -18px;
+  width: 36px;
+  height: 36px;
+  border: 1px dashed rgba(230, 57, 70, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  will-change: transform;
+  transition: width 0.3s, height 0.3s, border-color 0.3s;
+}
+
+body.cursor-hover .custom-cursor {
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+}
+
+body.cursor-hover .custom-cursor-follower {
+  width: 54px;
+  height: 54px;
+  border-color: var(--color-red-vibrant);
+  border-style: solid;
+  background: rgba(230, 57, 70, 0.08);
+}
+
+@media (pointer: coarse) {
+  .custom-cursor, .custom-cursor-follower {
+    display: none !important;
+  }
+}
+
+/* Preloader */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #08080a;
+  z-index: 1000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.8s var(--ease-out-expo), visibility 0.8s;
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.preloader-logo {
+  width: 100px;
+  height: auto;
+  filter: drop-shadow(0 0 14px rgba(230, 57, 70, 0.45));
+}
+
+.preloader-kanji {
+  font-family: var(--font-kanji);
+  font-size: 1.5rem;
+  color: var(--color-red-vibrant);
+  letter-spacing: 0.35em;
+}
+
+.preloader-sketch-box {
+  position: relative;
+  width: 220px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.preloader-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: var(--color-red-vibrant);
+  box-shadow: 0 0 10px var(--color-red-vibrant);
+  transition: width 0.2s ease-out;
+}
+
+.preloader-status {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--text-dark-muted);
+  text-transform: uppercase;
+}
